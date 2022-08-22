@@ -16,7 +16,7 @@ int getOrderQuantity(int orderCount)
 
 int main(void)
 {
-    struct Coffee   //making coffee a struct makes define the prices for each one neater
+    struct Coffee   //making coffee a struct makes defining the prices for each one neater
     {
         float price;
     };
@@ -49,14 +49,6 @@ int main(void)
         printf("Select a coffee to order, or enter 'done' to end order: ");
         fgets(orderSelection, osLengthMax, stdin);
 
-
-        if (!(strcasecmp(orderSelection, "done\n")))
-        {
-            printf("The total for your order is: $%.2f\n", total);
-            ordering = 0;
-            
-        }
-        else
         // using strcasecmp() rather than strcmp() because it is case insensitive
         if (!(strcasecmp(orderSelection, "flat white\n")))  // inverting result of strcasecmp because a match returns zero
         {
@@ -78,10 +70,17 @@ int main(void)
         {
             total += getOrderQuantity(orderCount) * macchiato.price;
         }
-        else
+        else if (!(strcasecmp(orderSelection, "done\n")))
         {
-            printf("Invalid input\n");
+            printf("The total for your order is: $%.2f\n", total);
+            ordering = 0;
+            
         }
+        getchar();  
+        /*
+        this is here to eat the newline character left in the input stream by scanf.
+        if the newline char is kept the fgets function is skipped over.
+        This was a VERY annoying bug.
+        */
     }
-
 }
