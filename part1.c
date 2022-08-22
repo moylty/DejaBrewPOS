@@ -3,8 +3,13 @@
 
 int getOrderQuantity(int orderCount)
 {
-    printf("\nHow many to order?\n");
-    scanf("%d", &orderCount);
+    orderCount = 0;
+
+    while (orderCount < 1)  // this prevents the quantity from being negative or zero
+    {
+        printf("\nHow many to order?\n");
+        scanf("%d", &orderCount);
+    }
 
     return orderCount;
 }
@@ -38,6 +43,7 @@ int main(void)
         printf("\nDejaBrew POS\n\nAvailable coffees:\nFlat White: $%.2f\nCappuccino: $%.2f\nExpresso:   $%.2f\nLong Black: $%.2f\nMacchiato:  $%.2f\n",
         flatWhite.price, cappuccino.price, expresso.price, longBlack.price, macchiato.price);
 
+        printf("\nCurrent total: $%.2f\n", total);
         printf("Select a coffee to order, or enter 'done' to end order: ");
         fgets(orderSelection, osLengthMax, stdin);
 
