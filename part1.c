@@ -30,15 +30,13 @@ int main(void)
     Coffee macchiato; macchiato.price = 5.00;
 
     int ordering = 1;
+    int orderCount = 0;
 
     const int osLengthMax = 12;
     char orderSelection[osLengthMax];
-
-    int orderCount = 0;
-
+    char anotherOrder[4];
+    
     float total = 0;
-
-    char nextOrder[4];
 
     while (ordering)
     {
@@ -73,7 +71,18 @@ int main(void)
         else if (!(strcasecmp(orderSelection, "done\n")))
         {
             printf("The total for your order is: $%.2f\n", total);
-            ordering = 0;
+
+            printf("Is there another customer?\n");
+            fgets(anotherOrder, 4, stdin);
+
+            if (!(strcasecmp(anotherOrder, "yes")))
+            {
+                total = 0;
+            }
+            else
+            {
+                ordering = 0;
+            }
             
         }
         getchar();  
@@ -81,6 +90,9 @@ int main(void)
         this is here to eat the newline character left in the input stream by scanf.
         if the newline char is kept the fgets function is skipped over.
         This was a VERY annoying bug.
+
+        It also prevents the console window from immediately closing after the
+        program ends on windows. This was absolutely intentional.
         */
     }
 }
