@@ -75,7 +75,7 @@ int main(void)
             printf("Is there another customer?\n");
             fgets(anotherOrder, 4, stdin);
 
-            if (!(strcasecmp(anotherOrder, "yes")))
+            if (!(strcasecmp(anotherOrder, "yes")) || !(strcasecmp(anotherOrder, "y\n")))
             {
                 total = 0;
             }
