@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void orderQuantity(int orderCountArray[5], int ocIndex)
+int getOrderQuantity(int orderCount)
 {
     printf("\nHow many to order?\n");
-    scanf("%d", &orderCountArray[ocIndex]);
-    ocIndex++;
+    scanf("%d", &orderCount);
+
+    return orderCount;
 }
 
 int main(void)
@@ -18,7 +19,7 @@ int main(void)
     typedef struct Coffee Coffee;
 
     Coffee flatWhite; flatWhite.price = 4.50;
-    Coffee cappucino; cappucino.price = 4.70;
+    Coffee cappuccino; cappuccino.price = 4.70;
     Coffee expresso; expresso.price = 3.50;
     Coffee longBlack; longBlack.price = 4.00;
     Coffee macchiato; macchiato.price = 5.00;
@@ -28,15 +29,14 @@ int main(void)
     const int osLengthMax = 12;
     char orderSelection[osLengthMax];
 
-    int orderCounts[5];
-    int ocIndex = 0;
+    int orderCount = 0;
 
     float total = 0;
 
     while (ordering)
     {
-        printf("DejaBrew POS\n\nAvailable coffees:\nFlat White: $%.2f\nCappuccino: $%.2f\nExpresso:   $%.2f\nLong Black: $%.2f\nMacchiato:  $%.2f\n",
-        flatWhite.price, cappucino.price, expresso.price, longBlack.price, macchiato.price);
+        printf("\nDejaBrew POS\n\nAvailable coffees:\nFlat White: $%.2f\nCappuccino: $%.2f\nExpresso:   $%.2f\nLong Black: $%.2f\nMacchiato:  $%.2f\n",
+        flatWhite.price, cappuccino.price, expresso.price, longBlack.price, macchiato.price);
 
         printf("Select a coffee to order, or enter 'done' to end order: ");
         fgets(orderSelection, osLengthMax, stdin);
@@ -50,19 +50,28 @@ int main(void)
         // using strcasecmp() rather than strcmp() because it is case insensitive
         if (!(strcasecmp(orderSelection, "flat white\n")))  // inverting result of strcasecmp because a match returns zero
         {
-            orderQuantity(orderCounts, ocIndex);
-            //printf("recently inputted quantity: %d\n", orderCounts[ocIndex]);
-            total += orderCounts[ocIndex] * flatWhite.price;
-
+            total += getOrderQuantity(orderCount) * flatWhite.price;
         }
         else if (!(strcasecmp(orderSelection, "cappuccino\n")))
         {
-            ;
+            total += getOrderQuantity(orderCount) * cappuccino.price;
         }
-
-        //printf("ordercount 0: %d\n", orderCounts[ocIndex]);
-        //ordering = 0;
-
+        else if (!(strcasecmp(orderSelection, "expresso\n")))
+        {
+            total += getOrderQuantity(orderCount) * expresso.price;
+        }
+        else if (!(strcasecmp(orderSelection, "long black\n")))
+        {
+            total += getOrderQuantity(orderCount) * longBlack.price;
+        }
+        else if (!(strcasecmp(orderSelection, "macchiato\n")))
+        {
+            total += getOrderQuantity(orderCount) * macchiato.price;
+        }
+        else
+        {
+            printf("Invalid input\n");
+        }
     }
 
     printf("The total for your order is: $%.2f\n", total);
