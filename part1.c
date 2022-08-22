@@ -38,6 +38,8 @@ int main(void)
 
     float total = 0;
 
+    char nextOrder[4];
+
     while (ordering)
     {
         printf("\nDejaBrew POS\n\nAvailable coffees:\nFlat White: $%.2f\nCappuccino: $%.2f\nExpresso:   $%.2f\nLong Black: $%.2f\nMacchiato:  $%.2f\n",
@@ -50,7 +52,9 @@ int main(void)
 
         if (!(strcasecmp(orderSelection, "done\n")))
         {
+            printf("The total for your order is: $%.2f\n", total);
             ordering = 0;
+            
         }
         else
         // using strcasecmp() rather than strcmp() because it is case insensitive
@@ -79,8 +83,5 @@ int main(void)
             printf("Invalid input\n");
         }
     }
-
-    printf("The total for your order is: $%.2f\n", total);
-
 
 }
