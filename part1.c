@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    struct Coffee
+    struct Coffee   //making coffee a struct makes define the prices for each one neater
     {
         float price;
     };
