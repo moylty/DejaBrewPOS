@@ -5,7 +5,6 @@ int main(void)
 {
     struct Coffee
     {
-        char name[12];
         float price;
     };
 
