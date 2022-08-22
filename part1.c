@@ -48,27 +48,27 @@ int main(void)
         fgets(orderSelection, osLengthMax, stdin);
 
         // using strcasecmp() rather than strcmp() because it is case insensitive
-        if (!(strcasecmp(orderSelection, "flat white\n")))  // inverting result of strcasecmp because a match returns zero
+        if (!(strcasecmp(orderSelection, "flat white\n")) || !(strcasecmp(orderSelection, "f\n")))  // inverting result of strcasecmp because a match returns zero
         {
             total += getOrderQuantity(orderCount) * flatWhite.price;
         }
-        else if (!(strcasecmp(orderSelection, "cappuccino\n")))
+        else if (!(strcasecmp(orderSelection, "cappuccino\n")) || !(strcasecmp(orderSelection, "c\n")))
         {
             total += getOrderQuantity(orderCount) * cappuccino.price;
         }
-        else if (!(strcasecmp(orderSelection, "expresso\n")))
+        else if (!(strcasecmp(orderSelection, "expresso\n")) || !(strcasecmp(orderSelection, "e\n")))
         {
             total += getOrderQuantity(orderCount) * expresso.price;
         }
-        else if (!(strcasecmp(orderSelection, "long black\n")))
+        else if (!(strcasecmp(orderSelection, "long black\n")) || !(strcasecmp(orderSelection, "l\n")))
         {
             total += getOrderQuantity(orderCount) * longBlack.price;
         }
-        else if (!(strcasecmp(orderSelection, "macchiato\n")))
+        else if (!(strcasecmp(orderSelection, "macchiato\n")) || !(strcasecmp(orderSelection, "m\n")))
         {
             total += getOrderQuantity(orderCount) * macchiato.price;
         }
-        else if (!(strcasecmp(orderSelection, "done\n")))
+        else if (!(strcasecmp(orderSelection, "done\n")) || !(strcasecmp(orderSelection, "d\n")))
         {
             printf("The total for your order is: $%.2f\n", total);
 
