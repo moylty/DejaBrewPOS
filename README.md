@@ -10,6 +10,6 @@ I will probably use a cross-platform library for this rather than regular Window
 not just because it will allow me to make binaries for Windows and Linux, but also because
 I just HATE developing on Windows.
 
-I was planning to use GTK, but setting up the development prerequisites was an absolute pain.
+I was planning to use GTK, but setting up the development prerequisites on Windows was an absolute pain.
 
 I might use the [imgui library](https://github.com/ocornut/imgui).
