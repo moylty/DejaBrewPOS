@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 int getOrderQuantity(int orderCount)
 {
@@ -29,7 +30,7 @@ int main(void)
     Coffee longBlack; longBlack.price = 4.00;
     Coffee macchiato; macchiato.price = 5.00;
 
-    int ordering = 1;
+    bool ordering = true;
     int orderCount = 0;
 
     const int osLengthMax = 12;
@@ -81,7 +82,7 @@ int main(void)
             }
             else
             {
-                ordering = 0;
+                ordering = false;
             }
             
         }
