@@ -12,4 +12,4 @@ I just HATE developing on Windows.
 
 I was planning to use GTK, but setting up the development prerequisites on Windows was an absolute pain.
 
-I might use the [imgui library](https://github.com/ocornut/imgui).
+I might use the [imgui library](https://github.com/ocornut/imgui) or Qt.
