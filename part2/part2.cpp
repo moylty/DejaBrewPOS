@@ -1,22 +1,20 @@
-#include <QApplication>
-#include <QWidget>
+//#include <QApplication>
+//#include <QWidget>
+//#include <QMenu>
+//#include <QMenuBar>
+#include "topmenu.h"
 
 int main(int argc, char *argv[])
 {
-	int windowScale = 1;
-	int width = 250 * windowScale, height = 150 * windowScale;
+	int width = 350, height = 250;
 
 	QApplication app(argc, argv);
 
-	QWidget *baseWidget = new QWidget();
-	baseWidget -> setGeometry(0, 0, width, height);
+	TopMenu window;
 
-	QPalette pal = QPalette();
-	pal.setColor(QPalette::Window, Qt::blue);
-
-	baseWidget -> setAutoFillBackground(true);
-	baseWidget -> setPalette(pal);
-	baseWidget -> show();
+	window.resize(width, height);
+	window.setWindowTitle("Deja Brew POS");
+	window.show();
 
 	return app.exec();
 }
