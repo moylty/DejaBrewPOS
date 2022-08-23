@@ -17,7 +17,9 @@ int getOrderQuantity(int orderCount)
 
 int main(void)
 {
-    struct Coffee   //making coffee a struct makes defining the prices for each one neater
+    // making coffee a struct makes defining the prices for each one neater
+    // it would also make adding extra attributes such as descriptions easier
+    struct Coffee
     {
         float price;
     };
