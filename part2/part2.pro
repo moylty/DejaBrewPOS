@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = part2
+TARGET = part2b
 INCLUDEPATH += .
 
 # You can make your code fail to compile if you use deprecated APIs.
