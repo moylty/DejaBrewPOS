@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 
+// This is the 'main' file. It doesn't define a window class,
+// but it does control things like the scale and title of that class.
+
 int main(int argc, char *argv[])
 {
 	int scale = 1;

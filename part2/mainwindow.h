@@ -4,6 +4,8 @@
 #include <QPushButton>
 #include <QApplication>
 
+// this file defines the main window, a class used in both .cpp files.
+
 class MainWindow : public QMainWindow
 {
 	public:
