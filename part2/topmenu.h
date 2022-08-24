@@ -5,6 +5,6 @@
 
 class TopMenu : public QMainWindow
 {
-    public:
-        TopMenu(QWidget *parent = nullptr);
+	public:
+		TopMenu(QWidget *parent = nullptr);
 };
