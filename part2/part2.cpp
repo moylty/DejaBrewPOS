@@ -1,12 +1,9 @@
-//#include <QApplication>
-//#include <QWidget>
-//#include <QMenu>
-//#include <QMenuBar>
 #include "topmenu.h"
 
 int main(int argc, char *argv[])
 {
-	int width = 350, height = 250;
+	int scale = 1;
+	int width = 700 * scale, height = 500 * scale;
 
 	QApplication app(argc, argv);
 
