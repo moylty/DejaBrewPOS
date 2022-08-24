@@ -94,7 +94,7 @@ int main(void)
             skipGC = true;
         }
         
-        if (skipGC != false)
+        if (skipGC == false)
         {
             getchar();
         }
