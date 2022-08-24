@@ -33,6 +33,7 @@ int main(void)
     Coffee macchiato; macchiato.price = 5.00;
 
     bool ordering = true;
+    bool skipGC = false;
     int orderCount = 0;
 
     const int osLengthMax = 12;
@@ -86,9 +87,19 @@ int main(void)
             {
                 ordering = false;
             }
-            
         }
-        getchar();  
+        else
+        {
+            printf("Invalid input");
+            skipGC = true;
+        }
+        
+        if (skipGC != false)
+        {
+            getchar();
+        }
+        
+        
         /*
         this is here to eat the newline character left in the input stream by scanf.
         if the newline char is kept the fgets function is skipped over.
