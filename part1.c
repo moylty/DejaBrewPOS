@@ -99,7 +99,6 @@ int main(void)
             getchar();
         }
         
-        
         /*
         this is here to eat the newline character left in the input stream by scanf.
         if the newline char is kept the fgets function is skipped over.
