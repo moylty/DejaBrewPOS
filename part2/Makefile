@@ -53,9 +53,9 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = part2.cpp \
-		topmenu.cpp 
+		mainwindow.cpp 
 OBJECTS       = part2.o \
-		topmenu.o
+		mainwindow.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -179,8 +179,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		part2.pro topmenu.h part2.cpp \
-		topmenu.cpp
+		part2.pro mainwindow.h part2.cpp \
+		mainwindow.cpp
 QMAKE_TARGET  = part2b
 DESTDIR       = 
 TARGET        = part2b
@@ -456,8 +456,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents topmenu.h $(DISTDIR)/
-	$(COPY_FILE) --parents part2.cpp topmenu.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents part2.cpp mainwindow.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -507,11 +507,11 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-part2.o: part2.cpp topmenu.h
+part2.o: part2.cpp mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o part2.o part2.cpp
 
-topmenu.o: topmenu.cpp topmenu.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o topmenu.o topmenu.cpp
+mainwindow.o: mainwindow.cpp mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 ####### Install
 

@@ -1,4 +1,4 @@
-#include "topmenu.h"
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -7,7 +7,9 @@ int main(int argc, char *argv[])
 
 	QApplication app(argc, argv);
 
-	TopMenu window;
+	MainWindow window;
+
+	
 
 	window.resize(width, height);
 	window.setWindowTitle("Deja Brew POS");
