@@ -507,7 +507,8 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-part2.o: part2.cpp mainwindow.h
+part2.o: part2.cpp mainwindow.h \
+		menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o part2.o part2.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h

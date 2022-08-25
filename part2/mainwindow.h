@@ -14,9 +14,11 @@ class MainWindow : public QMainWindow
 		int width = 700, height = 500;
 
 	private slots:
-  		void handleButton();
 		void scaleIncrease();
 		void scaleDecrease();
-	private:
-  		QPushButton *m_button;
+
+		void aboutDJPdialog();
+
+	//private:
+
 };

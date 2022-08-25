@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <QtGui>
+#include <QApplication>
 #include "mainwindow.h"
+#include "menu.h"
 
 // This is the 'main' file. It doesn't define a window class,
 // but it does control things like the scale and title of that class.
