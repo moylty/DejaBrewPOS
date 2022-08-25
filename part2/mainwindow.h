@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QApplication>
+#include <QSpinBox>
 
 // this file defines the main window, a class used in both .cpp files.
 
@@ -20,5 +21,6 @@ class MainWindow : public QMainWindow
 		void aboutDJPdialog();
 
 	//private:
+	//	QSpinBox *quantitySpinBox;
 
 };

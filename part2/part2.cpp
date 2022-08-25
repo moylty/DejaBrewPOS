@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 
 	window.resize(window.width, window.height);	// setting start size to 500 x 700
 	window.setWindowTitle("Deja Brew POS");
+
 	window.show();
 
 	return app.exec();

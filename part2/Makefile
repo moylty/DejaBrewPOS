@@ -511,7 +511,8 @@ part2.o: part2.cpp mainwindow.h \
 		menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o part2.o part2.cpp
 
-mainwindow.o: mainwindow.cpp mainwindow.h
+mainwindow.o: mainwindow.cpp mainwindow.h \
+		menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 ####### Install

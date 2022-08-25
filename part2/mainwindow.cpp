@@ -2,8 +2,8 @@
 #include <QMenuBar>
 #include <QtWidgets>
 #include <QFormLayout>
-#include <stdio.h>
 #include "mainwindow.h"
+#include "menu.h"
 
 // this file defines the elements and properties of the GUI window.
 // It uses the MainWindow class that is defined in the mainwindow.h
@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     view -> addAction(scaleUp);
     view -> addAction(scaleDown);
     help -> addAction(aboutPOS);
+
  
     // Connecting the UI elements to their associated functions
     connect(quit, &QAction::triggered, qApp, QApplication::quit);
@@ -54,6 +55,7 @@ void MainWindow::scaleDecrease()
 
 void MainWindow::aboutDJPdialog()
 {
+
   QDialog *aboutText = new QDialog();
   aboutText->setWindowTitle("About");
 
