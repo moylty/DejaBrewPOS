@@ -55,7 +55,7 @@ void MainWindow::scaleDecrease()
 void MainWindow::aboutDJPdialog()
 {
   QDialog *aboutText = new QDialog();
-  this->setWindowTitle("About");
+  aboutText->setWindowTitle("About");
   QVBoxLayout *vlayout = new QVBoxLayout;
   aboutText->setFixedSize(400,380);
   QLabel *label = new QLabel("This is a POS system for Déjà Brew, \na small mobile business that travels \naround in a van selling coffee. ");
