@@ -56,13 +56,22 @@ void MainWindow::aboutDJPdialog()
 {
   QDialog *aboutText = new QDialog();
   aboutText->setWindowTitle("About");
+
   QVBoxLayout *vlayout = new QVBoxLayout;
-  aboutText->setFixedSize(400,380);
+  aboutText->setFixedSize(400,280);
+
+  QLabel *aboutTitle = new QLabel("<b>About DejaBrew POS System</b>");
+  aboutTitle->setAlignment(Qt::AlignTop | Qt::AlignCenter);
+
   QLabel *label = new QLabel("This is a POS system for Déjà Brew, \na small mobile business that travels \naround in a van selling coffee. ");
   label->setAlignment(Qt::AlignTop | Qt::AlignCenter);
+
   QAbstractButton *bExit = new QPushButton("Close");
+
+  vlayout->addWidget(aboutTitle);
   vlayout->addWidget(label);
   vlayout->addWidget(bExit);
+
   aboutText->setLayout(vlayout);
   aboutText->show();
   aboutText->connect(bExit,SIGNAL(clicked()),aboutText,SLOT(close()));
