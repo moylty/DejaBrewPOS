@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "mainwindow.h"
 
 // This is the 'main' file. It doesn't define a window class,
@@ -5,16 +6,11 @@
 
 int main(int argc, char *argv[])
 {
-	int scale = 1;
-	int width = 700 * scale, height = 500 * scale;
-
 	QApplication app(argc, argv);
 
 	MainWindow window;
 
-	
-
-	window.resize(width, height);
+	window.resize(window.width, window.height);	// setting start size to 500 x 700
 	window.setWindowTitle("Deja Brew POS");
 	window.show();
 

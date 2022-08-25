@@ -1,6 +1,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QtWidgets>
+#include <stdio.h>
 #include "mainwindow.h"
 
 //int scale = 1;
@@ -9,17 +10,18 @@
 // It uses the MainWindow class that is defined in the mainwindow.h
 // header file.
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
 
     auto *quit = new QAction("&Quit", this);
-    auto *scale = new QAction("&Scale", this);
+    auto *scaleUp = new QAction("&Scale +", this);
+    auto *scaleDown = new QAction("&Scale -", this);
 
     QMenu *file = menuBar()->addMenu("&File");  // The top window options, file, about, etc.
     QMenu *view = menuBar()->addMenu("&View");
     file -> addAction(quit);
-    view -> addAction(scale);
+    view -> addAction(scaleUp);
+    view -> addAction(scaleDown);
 
     // Create the button, make "this" the parent
     m_button = new QPushButton("My Button", this);
@@ -33,9 +35,12 @@ MainWindow::MainWindow(QWidget *parent)
     label->setGeometry(QRect(QPoint(10, 50), QSize(100, 50)));
  
     // Connect object signals to appropriate slot
-    connect(m_button, &QPushButton::released, this, &MainWindow::handleButton);
     connect(quit, &QAction::triggered, qApp, QApplication::quit);
-    connect(scale, &QAction::triggered, qApp, QApplication::quit);
+    
+    connect(m_button, &QPushButton::released, this, &MainWindow::handleButton);
+    
+    connect(scaleUp, &QAction::triggered, this, &MainWindow::scaleIncrease);
+    connect(scaleDown, &QAction::triggered, this, &MainWindow::scaleDecrease);
 };
 
 /*
@@ -48,4 +53,16 @@ void MainWindow::handleButton()
   m_button->setText("Button clicked!");
   // resize button
   m_button->resize(100,100);
+}
+
+void MainWindow::scaleIncrease()
+{
+  scale += 0.1;
+  resize(width * scale, height * scale);
+}
+
+void MainWindow::scaleDecrease()
+{
+  scale -= 0.1;
+  resize(width * scale, height * scale);
 }
