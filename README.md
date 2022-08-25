@@ -10,6 +10,10 @@ I will probably use a cross-platform library for this rather than regular Window
 not just because it will allow me to make binaries for Windows and Linux, but also because
 I just HATE developing on Windows.
 
-I was planning to use GTK, but setting up the development prerequisites on Windows was an absolute pain.
+I was considering both GTK and imgui, but ultimately I decided on using Qt.
+Qt is better cross-platform compared to GTK, as well as being easier to set up for Windows
+development. Imgui seemed too complicated, especially for the relatively simple program I
+was going to make with it.
 
-I might use the [imgui library](https://github.com/ocornut/imgui) or Qt.
+Qt allows me to develop and compile my code on my Linux PC, and then cross-compile it into a
+Windows binary.
