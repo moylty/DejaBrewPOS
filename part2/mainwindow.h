@@ -15,12 +15,12 @@ class MainWindow : public QMainWindow
 		int width = 700, height = 500;
 
 	private slots:
-		void scaleIncrease();
-		void scaleDecrease();
+
+		void scale1x();
+		void scale2x();
+		void scale3x();
+		void scale4x();
 
 		void aboutDJPdialog();
-
-	//private:
-	//	QSpinBox *quantitySpinBox;
 
 };
