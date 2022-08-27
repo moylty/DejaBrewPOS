@@ -41,7 +41,7 @@ public:
     QLabel *quanLabel;
     QSpinBox *orderQuantity;
     QTableWidget *orderTable;
-    QListWidget *menuTable;
+    QListWidget *menuList;
     QPushButton *addOrderButton;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -98,6 +98,7 @@ public:
 
         orderQuantity = new QSpinBox(centralwidget);
         orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
+        orderQuantity->setValue(1); // initialising orderQuantity to 1
 
         gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
 
@@ -119,18 +120,18 @@ public:
 
         gridLayout->addWidget(orderTable, 3, 7, 1, 1);
 
-        menuTable = new QListWidget(centralwidget);
-        new QListWidgetItem(menuTable);
-        new QListWidgetItem(menuTable);
-        new QListWidgetItem(menuTable);
-        new QListWidgetItem(menuTable);
-        new QListWidgetItem(menuTable);
-        menuTable->setObjectName(QString::fromUtf8("menuTable"));
+        menuList = new QListWidget(centralwidget);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        menuList->setObjectName(QString::fromUtf8("menuList"));
         QFont font2;
         font2.setPointSize(12);
-        menuTable->setFont(font2);
+        menuList->setFont(font2);
 
-        gridLayout->addWidget(menuTable, 3, 0, 1, 5);
+        gridLayout->addWidget(menuList, 3, 0, 1, 5);
 
         addOrderButton = new QPushButton(centralwidget);
         addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
@@ -151,7 +152,7 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-        QWidget::setTabOrder(menuTable, orderQuantity);
+        QWidget::setTabOrder(menuList, orderQuantity);
         QWidget::setTabOrder(orderQuantity, addOrderButton);
 
         menubar->addAction(menuFile->menuAction());
@@ -188,19 +189,19 @@ public:
         QTableWidgetItem *___qtablewidgetitem3 = orderTable->verticalHeaderItem(0);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
 
-        const bool __sortingEnabled = menuTable->isSortingEnabled();
-        menuTable->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem = menuTable->item(0);
+        const bool __sortingEnabled = menuList->isSortingEnabled();
+        menuList->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = menuList->item(0);
         ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "Flat White        $4.50", nullptr));
-        QListWidgetItem *___qlistwidgetitem1 = menuTable->item(1);
+        QListWidgetItem *___qlistwidgetitem1 = menuList->item(1);
         ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "Cappuccino      $4.70", nullptr));
-        QListWidgetItem *___qlistwidgetitem2 = menuTable->item(2);
+        QListWidgetItem *___qlistwidgetitem2 = menuList->item(2);
         ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "Expresso          $3.50", nullptr));
-        QListWidgetItem *___qlistwidgetitem3 = menuTable->item(3);
+        QListWidgetItem *___qlistwidgetitem3 = menuList->item(3);
         ___qlistwidgetitem3->setText(QCoreApplication::translate("MainWindow", "Long Black       $4.00", nullptr));
-        QListWidgetItem *___qlistwidgetitem4 = menuTable->item(4);
+        QListWidgetItem *___qlistwidgetitem4 = menuList->item(4);
         ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Macchiato        $5.00", nullptr));
-        menuTable->setSortingEnabled(__sortingEnabled);
+        menuList->setSortingEnabled(__sortingEnabled);
 
         addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));

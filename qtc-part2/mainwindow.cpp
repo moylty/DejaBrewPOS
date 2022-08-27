@@ -47,12 +47,15 @@ void MainWindow::on_actionAbout_triggered()
     aboutTitle->setAlignment(Qt::AlignTop | Qt::AlignCenter);
 
     QLabel *label = new QLabel("This is a POS system for Déjà Brew, \na small mobile business that travels \naround in a van selling coffee. ");
+    QLabel *author = new QLabel("<b>Tyler Moyle - 2022</b>");
     label->setAlignment(Qt::AlignTop | Qt::AlignCenter);
+    author->setAlignment(Qt::AlignTop | Qt::AlignCenter);
 
     QAbstractButton *bExit = new QPushButton("Close");
 
     vlayout->addWidget(aboutTitle);
     vlayout->addWidget(label);
+    vlayout->addWidget(author);
     vlayout->addWidget(bExit);
 
     aboutText->setLayout(vlayout);
@@ -65,21 +68,21 @@ void MainWindow::on_actionFullscreen_triggered() { isFullScreen() ? showNormal()
 
 void MainWindow::addToOrder()
 {
-    /*
-        this function finds the currently selected values of the menu list
-        and stores them in variables, allowing them to be added to the
-        order.
-    */
-    //QString selectedValue;
-    //selectedValue = ui->menuTable->currentItem()->text();
+    if (ui->orderQuantity->value() > 0)
+    {
+        ui->orderTable->insertRow(ui->orderTable->rowCount());
 
-    // making it so that only the labels can be added to the order
-    // and not the prices
-    //if (selectedValue.contains(".", Qt::CaseInsensitive) == false)
-    //{
-    //    ui->orderList->addItem(selectedValue);
-    //}
+        QString selectedItem;
+        selectedItem = ui->menuList->currentItem()->text(); // get current item name selection
+        selectedItem.chop(5);  // remove price from name string
+        QString qvStr = QString::number(quantityValue = ui->orderQuantity->value()); // get quantity value and make it into a qstring
 
-    ui->orderTable->insertRow(ui->orderTable->rowCount());
+
+        QTableWidgetItem *newNameItem = new QTableWidgetItem(selectedItem);
+        QTableWidgetItem *newQuantityItem = new QTableWidgetItem(qvStr);
+
+        ui->orderTable->setItem(rCount, 0, newNameItem); // name
+        ui->orderTable->setItem(rCount, 1, newQuantityItem);
+        rCount++;
+    }
 }
-

@@ -104,7 +104,7 @@
      </widget>
     </item>
     <item row="3" column="0" colspan="5">
-     <widget class="QListWidget" name="menuTable">
+     <widget class="QListWidget" name="menuList">
       <property name="font">
        <font>
         <pointsize>12</pointsize>
@@ -198,7 +198,7 @@
   </action>
  </widget>
  <tabstops>
-  <tabstop>menuTable</tabstop>
+  <tabstop>menuList</tabstop>
   <tabstop>orderQuantity</tabstop>
   <tabstop>addOrderButton</tabstop>
  </tabstops>

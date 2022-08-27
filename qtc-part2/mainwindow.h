@@ -17,6 +17,8 @@ public:
     float scale = 1.0;
     int width = 700, height = 500;
     int orderNum = 1;
+    int rCount = 0;
+    int quantityValue;
 
 private:
     Ui::MainWindow *ui;
