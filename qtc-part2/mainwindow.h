@@ -27,5 +27,6 @@ private slots:
         void on_actionQuit_triggered();
         void on_actionAbout_triggered();
         void on_actionFullscreen_triggered();
+        void addToOrder();
 };
 #endif // MAINWINDOW_H

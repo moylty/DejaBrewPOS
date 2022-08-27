@@ -16,6 +16,8 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -29,6 +31,8 @@ public:
     QAction *actionAbout;
     QWidget *centralwidget;
     QListWidget *menuList;
+    QSpinBox *orderQuantity;
+    QPushButton *addOrderButton;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuView;
@@ -40,6 +44,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(886, 674);
+        MainWindow->setMinimumSize(QSize(600, 300));
         actionQuit = new QAction(MainWindow);
         actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
         actionFullscreen = new QAction(MainWindow);
@@ -55,7 +60,16 @@ public:
         new QListWidgetItem(menuList);
         new QListWidgetItem(menuList);
         menuList->setObjectName(QString::fromUtf8("menuList"));
-        menuList->setGeometry(QRect(10, 10, 571, 621));
+        menuList->setGeometry(QRect(10, 10, 431, 161));
+        QFont font;
+        font.setPointSize(12);
+        menuList->setFont(font);
+        orderQuantity = new QSpinBox(centralwidget);
+        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
+        orderQuantity->setGeometry(QRect(10, 180, 91, 41));
+        addOrderButton = new QPushButton(centralwidget);
+        addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
+        addOrderButton->setGeometry(QRect(110, 180, 91, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -107,6 +121,7 @@ public:
         ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Macchiato", nullptr));
         menuList->setSortingEnabled(__sortingEnabled);
 
+        addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));

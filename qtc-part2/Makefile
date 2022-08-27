@@ -1399,6 +1399,8 @@ mainwindow.o: mainwindow.cpp ../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QMenu
 		../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QMainWindow \
 		ui_mainwindow.h \
 		../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QListWidget \
+		../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QSpinBox \
 		../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QStatusBar \
 		../../../../Qt/6.3.1/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp

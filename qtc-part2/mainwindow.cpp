@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QFormLayout>
 #include <QShortcut>
+#include <stdio.h>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,8 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+O"), parent);
-    //QObject::connect(shortcut, SIGNAL(activated()), this, SLOT(on_actionFullscreen_triggered()));
+    // link the 'add to order' function to the button press
+    connect(ui->addOrderButton,SIGNAL(pressed()),this,SLOT(addToOrder()));
+
 }
 
 MainWindow::~MainWindow()
@@ -56,5 +58,18 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_actionFullscreen_triggered()
 {
     isFullScreen() ? showNormal() : showFullScreen();
+}
+
+void MainWindow::addToOrder()
+{
+    /*
+        this function finds the currently selected values of the menu list
+        and stores them in variables, allowing them to be added to the
+        order.
+    */
+    QString selectedValue= ui->menuList->currentItem()->text();
+    int quantityValue = ui->orderQuantity->value();
+    printf("sb value: %d\n", quantityValue);
+    qDebug().nospace() << selectedValue;
 }
 
