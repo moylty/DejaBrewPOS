@@ -17,17 +17,15 @@ public:
     float scale = 1.0;
     int width = 700, height = 500;
 
+    //int fullscreen = 0;
+
 private:
     Ui::MainWindow *ui;
 
 private slots:
 
-        void scale1x();
-        void scale2x();
-        void scale3x();
-        void scale4x();
-
-        void aboutDJPdialog();
-
+        void on_actionQuit_triggered();
+        void on_actionAbout_triggered();
+        void on_actionFullscreen_triggered();
 };
 #endif // MAINWINDOW_H
