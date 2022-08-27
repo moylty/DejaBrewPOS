@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // append order number to order string
     ui->onLabel->setText(ui->onLabel->text() + QString::number(orderNum));
-
+    // make order table stretch to fit all available space
     ui->orderTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 }
@@ -70,19 +70,46 @@ void MainWindow::addToOrder()
 {
     if (ui->orderQuantity->value() > 0)
     {
-        ui->orderTable->insertRow(ui->orderTable->rowCount());
+        ui->orderTable->insertRow(ui->orderTable->rowCount());  // add a new row
 
         QString selectedItem;
         selectedItem = ui->menuList->currentItem()->text(); // get current item name selection
         selectedItem.chop(5);  // remove price from name string
         QString qvStr = QString::number(quantityValue = ui->orderQuantity->value()); // get quantity value and make it into a qstring
+        QString priceStr = "Empty";
+
+
+        if (selectedItem.contains("Flat White"))
+        {
+            priceStr = QString::number((quantityValue) * prices[0], 'f', 2);
+        }
+        else if (selectedItem.contains("Cappuccino"))
+        {
+            priceStr = QString::number((quantityValue) * prices[1], 'f', 2);
+        }
+        else if (selectedItem.contains("Expresso"))
+        {
+            priceStr = QString::number((quantityValue) * prices[2], 'f', 2);
+        }
+        else if (selectedItem.contains("Long Black"))
+        {
+            priceStr = QString::number((quantityValue) * prices[3], 'f', 2);
+        }
+        else if (selectedItem.contains("Macchiato"))
+        {
+            priceStr = QString::number((quantityValue) * prices[4], 'f', 2);
+        }
+
+        priceStr.prepend("$"); // add $ to the start of the float
 
 
         QTableWidgetItem *newNameItem = new QTableWidgetItem(selectedItem);
         QTableWidgetItem *newQuantityItem = new QTableWidgetItem(qvStr);
+        QTableWidgetItem *newPriceItem = new QTableWidgetItem(priceStr);
 
         ui->orderTable->setItem(rCount, 0, newNameItem); // name
-        ui->orderTable->setItem(rCount, 1, newQuantityItem);
+        ui->orderTable->setItem(rCount, 1, newQuantityItem); // quantity
+        ui->orderTable->setItem(rCount, 2, newPriceItem);   // price
         rCount++;
     }
 }

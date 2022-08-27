@@ -19,6 +19,7 @@ public:
     int orderNum = 1;
     int rCount = 0;
     int quantityValue;
+    float prices[5] = {4.50, 4.70, 3.50, 4.00, 5.00};
 
 private:
     Ui::MainWindow *ui;
