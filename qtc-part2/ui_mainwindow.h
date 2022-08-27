@@ -13,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
@@ -35,14 +36,17 @@ public:
     QAction *actionAbout;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QLabel *coLabel;
-    QLabel *onLabel;
     QLabel *menulabel;
-    QLabel *quanLabel;
     QSpinBox *orderQuantity;
+    QLabel *quanLabel;
     QTableWidget *orderTable;
+    QLabel *coLabel;
     QListWidget *menuList;
     QPushButton *addOrderButton;
+    QLabel *onLabel;
+    QHBoxLayout *horizontalLayout;
+    QLabel *totalLabel;
+    QLabel *totalValue;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuView;
@@ -65,25 +69,19 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        coLabel = new QLabel(centralwidget);
-        coLabel->setObjectName(QString::fromUtf8("coLabel"));
+        menulabel = new QLabel(centralwidget);
+        menulabel->setObjectName(QString::fromUtf8("menulabel"));
         QFont font;
         font.setPointSize(13);
         font.setBold(true);
-        coLabel->setFont(font);
-
-        gridLayout->addWidget(coLabel, 0, 7, 1, 1);
-
-        onLabel = new QLabel(centralwidget);
-        onLabel->setObjectName(QString::fromUtf8("onLabel"));
-
-        gridLayout->addWidget(onLabel, 1, 7, 1, 1);
-
-        menulabel = new QLabel(centralwidget);
-        menulabel->setObjectName(QString::fromUtf8("menulabel"));
         menulabel->setFont(font);
 
         gridLayout->addWidget(menulabel, 0, 0, 1, 1);
+
+        orderQuantity = new QSpinBox(centralwidget);
+        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
+
+        gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
 
         quanLabel = new QLabel(centralwidget);
         quanLabel->setObjectName(QString::fromUtf8("quanLabel"));
@@ -95,12 +93,6 @@ public:
         quanLabel->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(quanLabel, 5, 0, 1, 1);
-
-        orderQuantity = new QSpinBox(centralwidget);
-        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
-        orderQuantity->setValue(1); // initialising orderQuantity to 1
-
-        gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
 
         orderTable = new QTableWidget(centralwidget);
         if (orderTable->columnCount() < 3)
@@ -120,6 +112,12 @@ public:
 
         gridLayout->addWidget(orderTable, 3, 7, 1, 1);
 
+        coLabel = new QLabel(centralwidget);
+        coLabel->setObjectName(QString::fromUtf8("coLabel"));
+        coLabel->setFont(font);
+
+        gridLayout->addWidget(coLabel, 0, 7, 1, 1);
+
         menuList = new QListWidget(centralwidget);
         new QListWidgetItem(menuList);
         new QListWidgetItem(menuList);
@@ -137,6 +135,111 @@ public:
         addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
 
         gridLayout->addWidget(addOrderButton, 5, 2, 1, 1);
+
+        onLabel = new QLabel(centralwidget);
+        onLabel->setObjectName(QString::fromUtf8("onLabel"));
+
+        gridLayout->addWidget(onLabel, 1, 7, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        totalLabel = new QLabel(centralwidget);
+        totalLabel->setObjectName(QString::fromUtf8("totalLabel"));
+        QFont font3;
+        font3.setPointSize(11);
+        font3.setBold(true);
+        totalLabel->setFont(font3);
+        totalLabel->setAutoFillBackground(true);
+        totalLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout->addWidget(totalLabel);
+
+        totalValue = new QLabel(centralwidget);
+        totalValue->setObjectName(QString::fromUtf8("totalValue"));
+        QPalette palette;
+        QBrush brush(QColor(0, 0, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(255, 255, 255, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Light, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Midlight, brush1);
+        QBrush brush2(QColor(127, 127, 127, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Dark, brush2);
+        QBrush brush3(QColor(170, 170, 170, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Mid, brush3);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette.setBrush(QPalette::Active, QPalette::BrightText, brush1);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Shadow, brush);
+        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush1);
+        QBrush brush4(QColor(255, 255, 220, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipBase, brush4);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
+        QBrush brush5(QColor(231, 231, 231, 255));
+        brush5.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush5);
+        QBrush brush6(QColor(35, 35, 35, 255));
+        brush6.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush6);
+        palette.setBrush(QPalette::Inactive, QPalette::Light, brush1);
+        QBrush brush7(QColor(202, 202, 202, 255));
+        brush7.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::Midlight, brush7);
+        palette.setBrush(QPalette::Inactive, QPalette::Dark, brush6);
+        QBrush brush8(QColor(160, 160, 160, 255));
+        brush8.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::Mid, brush8);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush5);
+        QBrush brush9(QColor(255, 0, 0, 255));
+        brush9.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush9);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush5);
+        QBrush brush10(QColor(51, 51, 51, 255));
+        brush10.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush10);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush10);
+        QBrush brush11(QColor(118, 118, 118, 255));
+        brush11.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::Shadow, brush11);
+        QBrush brush12(QColor(81, 81, 81, 255));
+        brush12.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush12);
+        QBrush brush13(QColor(0, 0, 0, 102));
+        brush13.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush13);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush5);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Light, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Midlight, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Dark, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Mid, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        QBrush brush14(QColor(177, 177, 177, 255));
+        brush14.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush14);
+        palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush12);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush13);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush5);
+        totalValue->setPalette(palette);
+        totalValue->setFont(font2);
+        totalValue->setAutoFillBackground(true);
+
+        horizontalLayout->addWidget(totalValue);
+
+
+        gridLayout->addLayout(horizontalLayout, 5, 7, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -176,8 +279,6 @@ public:
         actionFullscreen->setShortcut(QCoreApplication::translate("MainWindow", "F11", nullptr));
 #endif // QT_CONFIG(shortcut)
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
-        coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
-        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
         menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
         quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
         QTableWidgetItem *___qtablewidgetitem = orderTable->horizontalHeaderItem(0);
@@ -188,6 +289,7 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = orderTable->verticalHeaderItem(0);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
 
         const bool __sortingEnabled = menuList->isSortingEnabled();
         menuList->setSortingEnabled(false);
@@ -204,6 +306,9 @@ public:
         menuList->setSortingEnabled(__sortingEnabled);
 
         addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
+        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
+        totalLabel->setText(QCoreApplication::translate("MainWindow", "Total:", nullptr));
+        totalValue->setText(QCoreApplication::translate("MainWindow", "$0.00", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
