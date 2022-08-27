@@ -20,69 +20,52 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListWidget" name="menuList">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>431</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>Flat White</string>
-     </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QListWidget" name="menuList">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>Flat White</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cappuccino</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Expresso</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Long Black</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Macchiato</string>
+       </property>
+      </item>
+     </widget>
     </item>
-    <item>
-     <property name="text">
-      <string>Cappuccino</string>
-     </property>
+    <item row="1" column="0">
+     <widget class="QSpinBox" name="orderQuantity"/>
     </item>
-    <item>
-     <property name="text">
-      <string>Expresso</string>
-     </property>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="addOrderButton">
+      <property name="text">
+       <string>Add to Order</string>
+      </property>
+     </widget>
     </item>
-    <item>
-     <property name="text">
-      <string>Long Black</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Macchiato</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QSpinBox" name="orderQuantity">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>91</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addOrderButton">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>180</y>
-      <width>91</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add to Order</string>
-    </property>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

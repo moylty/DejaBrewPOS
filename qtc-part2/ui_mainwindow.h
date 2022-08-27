@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -30,6 +31,7 @@ public:
     QAction *actionFullscreen;
     QAction *actionAbout;
     QWidget *centralwidget;
+    QGridLayout *gridLayout;
     QListWidget *menuList;
     QSpinBox *orderQuantity;
     QPushButton *addOrderButton;
@@ -53,6 +55,8 @@ public:
         actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         menuList = new QListWidget(centralwidget);
         new QListWidgetItem(menuList);
         new QListWidgetItem(menuList);
@@ -60,16 +64,22 @@ public:
         new QListWidgetItem(menuList);
         new QListWidgetItem(menuList);
         menuList->setObjectName(QString::fromUtf8("menuList"));
-        menuList->setGeometry(QRect(10, 10, 431, 161));
         QFont font;
         font.setPointSize(12);
         menuList->setFont(font);
+
+        gridLayout->addWidget(menuList, 0, 0, 1, 2);
+
         orderQuantity = new QSpinBox(centralwidget);
         orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
-        orderQuantity->setGeometry(QRect(10, 180, 91, 41));
+
+        gridLayout->addWidget(orderQuantity, 1, 0, 1, 1);
+
         addOrderButton = new QPushButton(centralwidget);
         addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
-        addOrderButton->setGeometry(QRect(110, 180, 91, 41));
+
+        gridLayout->addWidget(addOrderButton, 1, 1, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
