@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     // append order number to order string
     ui->onLabel->setText(ui->onLabel->text() + QString::number(orderNum));
 
-    ui->menuTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->orderTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 }
 
@@ -70,14 +70,16 @@ void MainWindow::addToOrder()
         and stores them in variables, allowing them to be added to the
         order.
     */
-    QString selectedValue;
-    selectedValue = ui->menuTable->currentItem()->text();
+    //QString selectedValue;
+    //selectedValue = ui->menuTable->currentItem()->text();
 
     // making it so that only the labels can be added to the order
     // and not the prices
-    if (selectedValue.contains(".", Qt::CaseInsensitive) == false)
-    {
-        ui->orderList->addItem(selectedValue);
-    }
+    //if (selectedValue.contains(".", Qt::CaseInsensitive) == false)
+    //{
+    //    ui->orderList->addItem(selectedValue);
+    //}
+
+    ui->orderTable->insertRow(ui->orderTable->rowCount());
 }
 

@@ -35,14 +35,14 @@ public:
     QAction *actionAbout;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QListWidget *orderList;
-    QSpinBox *orderQuantity;
     QLabel *coLabel;
-    QPushButton *addOrderButton;
-    QTableWidget *menuTable;
-    QLabel *quanLabel;
     QLabel *onLabel;
     QLabel *menulabel;
+    QLabel *quanLabel;
+    QSpinBox *orderQuantity;
+    QTableWidget *orderTable;
+    QListWidget *menuTable;
+    QPushButton *addOrderButton;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuView;
@@ -65,93 +65,14 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        orderList = new QListWidget(centralwidget);
-        orderList->setObjectName(QString::fromUtf8("orderList"));
-        QFont font;
-        font.setPointSize(12);
-        orderList->setFont(font);
-        orderList->setSelectionMode(QAbstractItemView::NoSelection);
-        orderList->setSelectionRectVisible(false);
-
-        gridLayout->addWidget(orderList, 3, 7, 1, 1);
-
-        orderQuantity = new QSpinBox(centralwidget);
-        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
-
-        gridLayout->addWidget(orderQuantity, 5, 2, 1, 1);
-
         coLabel = new QLabel(centralwidget);
         coLabel->setObjectName(QString::fromUtf8("coLabel"));
-        QFont font1;
-        font1.setPointSize(13);
-        font1.setBold(true);
-        coLabel->setFont(font1);
+        QFont font;
+        font.setPointSize(13);
+        font.setBold(true);
+        coLabel->setFont(font);
 
         gridLayout->addWidget(coLabel, 0, 7, 1, 1);
-
-        addOrderButton = new QPushButton(centralwidget);
-        addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
-
-        gridLayout->addWidget(addOrderButton, 5, 3, 1, 1);
-
-        menuTable = new QTableWidget(centralwidget);
-        if (menuTable->columnCount() < 2)
-            menuTable->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        menuTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        menuTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        if (menuTable->rowCount() < 5)
-            menuTable->setRowCount(5);
-        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
-        menuTable->setVerticalHeaderItem(0, __qtablewidgetitem2);
-        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        menuTable->setVerticalHeaderItem(1, __qtablewidgetitem3);
-        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        menuTable->setVerticalHeaderItem(2, __qtablewidgetitem4);
-        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        menuTable->setVerticalHeaderItem(3, __qtablewidgetitem5);
-        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        menuTable->setVerticalHeaderItem(4, __qtablewidgetitem6);
-        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        menuTable->setItem(0, 0, __qtablewidgetitem7);
-        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        menuTable->setItem(0, 1, __qtablewidgetitem8);
-        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        menuTable->setItem(1, 0, __qtablewidgetitem9);
-        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        menuTable->setItem(1, 1, __qtablewidgetitem10);
-        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        menuTable->setItem(2, 0, __qtablewidgetitem11);
-        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        menuTable->setItem(2, 1, __qtablewidgetitem12);
-        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        menuTable->setItem(3, 0, __qtablewidgetitem13);
-        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        menuTable->setItem(3, 1, __qtablewidgetitem14);
-        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        menuTable->setItem(4, 0, __qtablewidgetitem15);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        menuTable->setItem(4, 1, __qtablewidgetitem16);
-        menuTable->setObjectName(QString::fromUtf8("menuTable"));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(menuTable->sizePolicy().hasHeightForWidth());
-        menuTable->setSizePolicy(sizePolicy);
-
-        gridLayout->addWidget(menuTable, 3, 1, 1, 3, Qt::AlignRight);
-
-        quanLabel = new QLabel(centralwidget);
-        quanLabel->setObjectName(QString::fromUtf8("quanLabel"));
-        QFont font2;
-        font2.setPointSize(10);
-        font2.setBold(false);
-        quanLabel->setFont(font2);
-        quanLabel->setTextFormat(Qt::PlainText);
-        quanLabel->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(quanLabel, 5, 1, 1, 1);
 
         onLabel = new QLabel(centralwidget);
         onLabel->setObjectName(QString::fromUtf8("onLabel"));
@@ -160,9 +81,61 @@ public:
 
         menulabel = new QLabel(centralwidget);
         menulabel->setObjectName(QString::fromUtf8("menulabel"));
-        menulabel->setFont(font1);
+        menulabel->setFont(font);
 
-        gridLayout->addWidget(menulabel, 0, 1, 1, 1);
+        gridLayout->addWidget(menulabel, 0, 0, 1, 1);
+
+        quanLabel = new QLabel(centralwidget);
+        quanLabel->setObjectName(QString::fromUtf8("quanLabel"));
+        QFont font1;
+        font1.setPointSize(10);
+        font1.setBold(false);
+        quanLabel->setFont(font1);
+        quanLabel->setTextFormat(Qt::PlainText);
+        quanLabel->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(quanLabel, 5, 0, 1, 1);
+
+        orderQuantity = new QSpinBox(centralwidget);
+        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
+
+        gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
+
+        orderTable = new QTableWidget(centralwidget);
+        if (orderTable->columnCount() < 3)
+            orderTable->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        orderTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        orderTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        orderTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        if (orderTable->rowCount() < 1)
+            orderTable->setRowCount(1);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        orderTable->setVerticalHeaderItem(0, __qtablewidgetitem3);
+        orderTable->setObjectName(QString::fromUtf8("orderTable"));
+        orderTable->setFocusPolicy(Qt::NoFocus);
+
+        gridLayout->addWidget(orderTable, 3, 7, 1, 1);
+
+        menuTable = new QListWidget(centralwidget);
+        new QListWidgetItem(menuTable);
+        new QListWidgetItem(menuTable);
+        new QListWidgetItem(menuTable);
+        new QListWidgetItem(menuTable);
+        new QListWidgetItem(menuTable);
+        menuTable->setObjectName(QString::fromUtf8("menuTable"));
+        QFont font2;
+        font2.setPointSize(12);
+        menuTable->setFont(font2);
+
+        gridLayout->addWidget(menuTable, 3, 0, 1, 5);
+
+        addOrderButton = new QPushButton(centralwidget);
+        addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
+
+        gridLayout->addWidget(addOrderButton, 5, 2, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -178,6 +151,8 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+        QWidget::setTabOrder(menuTable, orderQuantity);
+        QWidget::setTabOrder(orderQuantity, addOrderButton);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuView->menuAction());
@@ -201,49 +176,33 @@ public:
 #endif // QT_CONFIG(shortcut)
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
-        addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
-        QTableWidgetItem *___qtablewidgetitem = menuTable->horizontalHeaderItem(0);
+        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
+        menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
+        quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = orderTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Item", nullptr));
-        QTableWidgetItem *___qtablewidgetitem1 = menuTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
-        QTableWidgetItem *___qtablewidgetitem2 = menuTable->verticalHeaderItem(0);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        QTableWidgetItem *___qtablewidgetitem3 = menuTable->verticalHeaderItem(1);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
-        QTableWidgetItem *___qtablewidgetitem4 = menuTable->verticalHeaderItem(2);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
-        QTableWidgetItem *___qtablewidgetitem5 = menuTable->verticalHeaderItem(3);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
-        QTableWidgetItem *___qtablewidgetitem6 = menuTable->verticalHeaderItem(4);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = orderTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Quantity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = orderTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = orderTable->verticalHeaderItem(0);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
 
         const bool __sortingEnabled = menuTable->isSortingEnabled();
         menuTable->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem7 = menuTable->item(0, 0);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Flat White", nullptr));
-        QTableWidgetItem *___qtablewidgetitem8 = menuTable->item(0, 1);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "4.50", nullptr));
-        QTableWidgetItem *___qtablewidgetitem9 = menuTable->item(1, 0);
-        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "Cappuccino", nullptr));
-        QTableWidgetItem *___qtablewidgetitem10 = menuTable->item(1, 1);
-        ___qtablewidgetitem10->setText(QCoreApplication::translate("MainWindow", "4.70", nullptr));
-        QTableWidgetItem *___qtablewidgetitem11 = menuTable->item(2, 0);
-        ___qtablewidgetitem11->setText(QCoreApplication::translate("MainWindow", "Expresso", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = menuTable->item(2, 1);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("MainWindow", "3.50", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = menuTable->item(3, 0);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("MainWindow", "Long Black", nullptr));
-        QTableWidgetItem *___qtablewidgetitem14 = menuTable->item(3, 1);
-        ___qtablewidgetitem14->setText(QCoreApplication::translate("MainWindow", "4.00", nullptr));
-        QTableWidgetItem *___qtablewidgetitem15 = menuTable->item(4, 0);
-        ___qtablewidgetitem15->setText(QCoreApplication::translate("MainWindow", "Macchiato", nullptr));
-        QTableWidgetItem *___qtablewidgetitem16 = menuTable->item(4, 1);
-        ___qtablewidgetitem16->setText(QCoreApplication::translate("MainWindow", "5.00", nullptr));
+        QListWidgetItem *___qlistwidgetitem = menuTable->item(0);
+        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "Flat White        $4.50", nullptr));
+        QListWidgetItem *___qlistwidgetitem1 = menuTable->item(1);
+        ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "Cappuccino      $4.70", nullptr));
+        QListWidgetItem *___qlistwidgetitem2 = menuTable->item(2);
+        ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "Expresso          $3.50", nullptr));
+        QListWidgetItem *___qlistwidgetitem3 = menuTable->item(3);
+        ___qlistwidgetitem3->setText(QCoreApplication::translate("MainWindow", "Long Black       $4.00", nullptr));
+        QListWidgetItem *___qlistwidgetitem4 = menuTable->item(4);
+        ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Macchiato        $5.00", nullptr));
         menuTable->setSortingEnabled(__sortingEnabled);
 
-        quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
-        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
-        menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
+        addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));

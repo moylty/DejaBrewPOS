@@ -21,24 +21,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="7">
-     <widget class="QListWidget" name="orderList">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="selectionMode">
-       <enum>QAbstractItemView::NoSelection</enum>
-      </property>
-      <property name="selectionRectVisible">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QSpinBox" name="orderQuantity"/>
-    </item>
     <item row="0" column="7">
      <widget class="QLabel" name="coLabel">
       <property name="font">
@@ -52,109 +34,27 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="3">
-     <widget class="QPushButton" name="addOrderButton">
+    <item row="1" column="7">
+     <widget class="QLabel" name="onLabel">
       <property name="text">
-       <string>Add to Order</string>
+       <string>Order Number: </string>
       </property>
      </widget>
     </item>
-    <item row="3" column="1" colspan="3" alignment="Qt::AlignRight">
-     <widget class="QTableWidget" name="menuTable">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+    <item row="0" column="0">
+     <widget class="QLabel" name="menulabel">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+        <bold>true</bold>
+       </font>
       </property>
-      <row>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>5</string>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>Item</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Price</string>
-       </property>
-      </column>
-      <item row="0" column="0">
-       <property name="text">
-        <string>Flat White</string>
-       </property>
-      </item>
-      <item row="0" column="1">
-       <property name="text">
-        <string>4.50</string>
-       </property>
-      </item>
-      <item row="1" column="0">
-       <property name="text">
-        <string>Cappuccino</string>
-       </property>
-      </item>
-      <item row="1" column="1">
-       <property name="text">
-        <string>4.70</string>
-       </property>
-      </item>
-      <item row="2" column="0">
-       <property name="text">
-        <string>Expresso</string>
-       </property>
-      </item>
-      <item row="2" column="1">
-       <property name="text">
-        <string>3.50</string>
-       </property>
-      </item>
-      <item row="3" column="0">
-       <property name="text">
-        <string>Long Black</string>
-       </property>
-      </item>
-      <item row="3" column="1">
-       <property name="text">
-        <string>4.00</string>
-       </property>
-      </item>
-      <item row="4" column="0">
-       <property name="text">
-        <string>Macchiato</string>
-       </property>
-      </item>
-      <item row="4" column="1">
-       <property name="text">
-        <string>5.00</string>
-       </property>
-      </item>
+      <property name="text">
+       <string>Menu:</string>
+      </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="5" column="0">
      <widget class="QLabel" name="quanLabel">
       <property name="font">
        <font>
@@ -173,23 +73,74 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="7">
-     <widget class="QLabel" name="onLabel">
-      <property name="text">
-       <string>Order Number: </string>
+    <item row="5" column="1">
+     <widget class="QSpinBox" name="orderQuantity"/>
+    </item>
+    <item row="3" column="7">
+     <widget class="QTableWidget" name="orderTable">
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Item</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Quantity</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Price</string>
+       </property>
+      </column>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="menulabel">
+    <item row="3" column="0" colspan="5">
+     <widget class="QListWidget" name="menuTable">
       <property name="font">
        <font>
-        <pointsize>13</pointsize>
-        <bold>true</bold>
+        <pointsize>12</pointsize>
        </font>
       </property>
+      <item>
+       <property name="text">
+        <string>Flat White        $4.50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cappuccino      $4.70</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Expresso          $3.50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Long Black       $4.00</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Macchiato        $5.00</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="addOrderButton">
       <property name="text">
-       <string>Menu:</string>
+       <string>Add to Order</string>
       </property>
      </widget>
     </item>
@@ -247,7 +198,9 @@
   </action>
  </widget>
  <tabstops>
-  <tabstop>orderList</tabstop>
+  <tabstop>menuTable</tabstop>
+  <tabstop>orderQuantity</tabstop>
+  <tabstop>addOrderButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>
