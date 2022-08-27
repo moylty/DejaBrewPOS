@@ -18,7 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
     // link the 'add to order' function to the button press
     connect(ui->addOrderButton,SIGNAL(pressed()),this,SLOT(addToOrder()));
 
+    // append order number to order string
     ui->onLabel->setText(ui->onLabel->text() + QString::number(orderNum));
+
+    ui->menuTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 }
 
@@ -58,10 +61,7 @@ void MainWindow::on_actionAbout_triggered()
 }
 
 
-void MainWindow::on_actionFullscreen_triggered()
-{
-    isFullScreen() ? showNormal() : showFullScreen();
-}
+void MainWindow::on_actionFullscreen_triggered() { isFullScreen() ? showNormal() : showFullScreen(); }
 
 void MainWindow::addToOrder()
 {
@@ -71,12 +71,13 @@ void MainWindow::addToOrder()
         order.
     */
     QString selectedValue;
-    selectedValue= ui->menuList->currentItem()->text();
+    selectedValue = ui->menuTable->currentItem()->text();
 
-    int quantityValue = ui->orderQuantity->value();
-
-    qDebug().nospace() << selectedValue;
-    qDebug() << "Quantity: " << quantityValue;
-    ui->orderList->addItem(selectedValue);
+    // making it so that only the labels can be added to the order
+    // and not the prices
+    if (selectedValue.contains(".", Qt::CaseInsensitive) == false)
+    {
+        ui->orderList->addItem(selectedValue);
+    }
 }
 

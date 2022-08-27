@@ -16,7 +16,7 @@ public:
     ~MainWindow();
     float scale = 1.0;
     int width = 700, height = 500;
-    int orderNum = 0;
+    int orderNum = 1;
 
 private:
     Ui::MainWindow *ui;
