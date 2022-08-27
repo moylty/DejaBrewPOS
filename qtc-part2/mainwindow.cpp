@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QFormLayout>
 #include <QShortcut>
+#include <QString>
 #include <stdio.h>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -16,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // link the 'add to order' function to the button press
     connect(ui->addOrderButton,SIGNAL(pressed()),this,SLOT(addToOrder()));
+
+    ui->onLabel->setText(ui->onLabel->text() + QString::number(orderNum));
 
 }
 
@@ -67,9 +70,13 @@ void MainWindow::addToOrder()
         and stores them in variables, allowing them to be added to the
         order.
     */
-    QString selectedValue= ui->menuList->currentItem()->text();
+    QString selectedValue;
+    selectedValue= ui->menuList->currentItem()->text();
+
     int quantityValue = ui->orderQuantity->value();
-    printf("sb value: %d\n", quantityValue);
+
     qDebug().nospace() << selectedValue;
+    qDebug() << "Quantity: " << quantityValue;
+    ui->orderList->addItem(selectedValue);
 }
 

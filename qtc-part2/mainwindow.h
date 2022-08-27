@@ -16,8 +16,7 @@ public:
     ~MainWindow();
     float scale = 1.0;
     int width = 700, height = 500;
-
-    //int fullscreen = 0;
+    int orderNum = 0;
 
 private:
     Ui::MainWindow *ui;
