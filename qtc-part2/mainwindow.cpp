@@ -110,6 +110,22 @@ void MainWindow::addToOrder()
         ui->orderTable->setItem(rCount, 0, newNameItem); // name
         ui->orderTable->setItem(rCount, 1, newQuantityItem); // quantity
         ui->orderTable->setItem(rCount, 2, newPriceItem);   // price
+
+        // get the most recent price string
+        QString latestPrice = ui->orderTable->item(rCount, 2)->text();
+        // remove the $
+        latestPrice.remove(0, 1);
+        // convert the string to float and add it to the total
+        lpFloat = latestPrice.toFloat();
+        orderTotal += lpFloat;
+        // format the float so that there are two decimal places
+        QString strTotal = "$" + QString::number(orderTotal, 'f', 2);
+        // set the value of the label to the total value
+        ui->totalValue->setText(strTotal);
+
         rCount++;
+
+        // reset the spinbox quantity value to 1 for the next item
+        ui->orderQuantity->setValue(1);
     }
 }

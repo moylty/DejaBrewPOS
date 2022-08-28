@@ -81,6 +81,9 @@ public:
         orderQuantity = new QSpinBox(centralwidget);
         orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
 
+        // make the order quantity spinbox default to '1' rather than '0'
+        orderQuantity->setValue(1);
+
         gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
 
         quanLabel = new QLabel(centralwidget);
