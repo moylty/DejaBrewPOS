@@ -10,3 +10,4 @@ ui-mockup.odg
 *.o
 qtc-part2/.qtc_clangd/
 *.idx
+qtc-part2.pro.u*
