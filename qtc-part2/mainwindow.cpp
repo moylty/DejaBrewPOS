@@ -47,14 +47,17 @@ void MainWindow::on_actionAbout_triggered()
     aboutTitle->setAlignment(Qt::AlignTop | Qt::AlignCenter);
 
     QLabel *label = new QLabel("This is a POS system for Déjà Brew, \na small mobile business that travels \naround in a van selling coffee. ");
+    QLabel *tip = new QLabel("<b>Tip:</b><br> Use tab, arrow keys and space <br>to efficiently use the program.");
     QLabel *author = new QLabel("<b>Tyler Moyle - 2022</b>");
     label->setAlignment(Qt::AlignTop | Qt::AlignCenter);
+    tip->setAlignment(Qt::AlignTop | Qt::AlignCenter);
     author->setAlignment(Qt::AlignTop | Qt::AlignCenter);
 
     QAbstractButton *bExit = new QPushButton("Close");
 
     vlayout->addWidget(aboutTitle);
     vlayout->addWidget(label);
+    vlayout->addWidget(tip);
     vlayout->addWidget(author);
     vlayout->addWidget(bExit);
 
