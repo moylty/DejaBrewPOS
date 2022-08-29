@@ -80,6 +80,7 @@ public:
 
         orderQuantity = new QSpinBox(centralwidget);
         orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
+        orderQuantity->setMinimum(1);
 
         gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
 
