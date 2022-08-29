@@ -19,10 +19,14 @@
   <property name="windowTitle">
    <string>DejaBrew POS</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>img/coffee-icon.svg</normaloff>img/coffee-icon.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="menulabel">
+    <item row="1" column="7">
+     <widget class="QLabel" name="coLabel">
       <property name="font">
        <font>
         <pointsize>13</pointsize>
@@ -30,37 +34,11 @@
        </font>
       </property>
       <property name="text">
-       <string>Menu:</string>
+       <string>Current Order:</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
-     <widget class="QSpinBox" name="orderQuantity">
-      <property name="minimum">
-       <number>1</number>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="quanLabel">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Quantity:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::PlainText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="7">
+    <item row="5" column="7">
      <widget class="QTableWidget" name="orderTable">
       <property name="focusPolicy">
        <enum>Qt::NoFocus</enum>
@@ -90,8 +68,15 @@
       </column>
      </widget>
     </item>
-    <item row="0" column="7">
-     <widget class="QLabel" name="coLabel">
+    <item row="7" column="2">
+     <widget class="QPushButton" name="addOrderButton">
+      <property name="text">
+       <string>Add to Order</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="menulabel">
       <property name="font">
        <font>
         <pointsize>13</pointsize>
@@ -99,59 +84,44 @@
        </font>
       </property>
       <property name="text">
-       <string>Current Order:</string>
+       <string>Menu:</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0" colspan="5">
-     <widget class="QListWidget" name="menuList">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <item>
-       <property name="text">
-        <string>Flat White        $4.50</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Cappuccino      $4.70</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Expresso          $3.50</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Long Black       $4.00</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Macchiato        $5.00</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPushButton" name="addOrderButton">
-      <property name="text">
-       <string>Add to Order</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="7">
+    <item row="3" column="7">
      <widget class="QLabel" name="onLabel">
       <property name="text">
        <string>Order Number: </string>
       </property>
      </widget>
     </item>
-    <item row="5" column="7">
+    <item row="7" column="1">
+     <widget class="QSpinBox" name="orderQuantity">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="quanLabel">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Quantity:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="7">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="totalLabel">
@@ -387,6 +357,40 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item row="5" column="0" colspan="5">
+     <widget class="QListWidget" name="menuList">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>Flat White        $4.50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cappuccino      $4.70</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Expresso          $3.50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Long Black       $4.00</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Macchiato        $5.00</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>

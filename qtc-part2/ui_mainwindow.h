@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -36,17 +37,17 @@ public:
     QAction *actionAbout;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
+    QLabel *coLabel;
+    QTableWidget *orderTable;
+    QPushButton *addOrderButton;
     QLabel *menulabel;
+    QLabel *onLabel;
     QSpinBox *orderQuantity;
     QLabel *quanLabel;
-    QTableWidget *orderTable;
-    QLabel *coLabel;
-    QListWidget *menuList;
-    QPushButton *addOrderButton;
-    QLabel *onLabel;
     QHBoxLayout *horizontalLayout;
     QLabel *totalLabel;
     QLabel *totalValue;
+    QListWidget *menuList;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuView;
@@ -59,6 +60,9 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(889, 713);
         MainWindow->setMinimumSize(QSize(600, 300));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("img/coffee-icon.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         actionQuit = new QAction(MainWindow);
         actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
         actionFullscreen = new QAction(MainWindow);
@@ -69,31 +73,14 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        menulabel = new QLabel(centralwidget);
-        menulabel->setObjectName(QString::fromUtf8("menulabel"));
+        coLabel = new QLabel(centralwidget);
+        coLabel->setObjectName(QString::fromUtf8("coLabel"));
         QFont font;
         font.setPointSize(13);
         font.setBold(true);
-        menulabel->setFont(font);
+        coLabel->setFont(font);
 
-        gridLayout->addWidget(menulabel, 0, 0, 1, 1);
-
-        orderQuantity = new QSpinBox(centralwidget);
-        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
-        orderQuantity->setMinimum(1);
-
-        gridLayout->addWidget(orderQuantity, 5, 1, 1, 1);
-
-        quanLabel = new QLabel(centralwidget);
-        quanLabel->setObjectName(QString::fromUtf8("quanLabel"));
-        QFont font1;
-        font1.setPointSize(10);
-        font1.setBold(false);
-        quanLabel->setFont(font1);
-        quanLabel->setTextFormat(Qt::PlainText);
-        quanLabel->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(quanLabel, 5, 0, 1, 1);
+        gridLayout->addWidget(coLabel, 1, 7, 1, 1);
 
         orderTable = new QTableWidget(centralwidget);
         if (orderTable->columnCount() < 3)
@@ -112,45 +99,49 @@ public:
         orderTable->setFocusPolicy(Qt::NoFocus);
         orderTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-        gridLayout->addWidget(orderTable, 3, 7, 1, 1);
-
-        coLabel = new QLabel(centralwidget);
-        coLabel->setObjectName(QString::fromUtf8("coLabel"));
-        coLabel->setFont(font);
-
-        gridLayout->addWidget(coLabel, 0, 7, 1, 1);
-
-        menuList = new QListWidget(centralwidget);
-        new QListWidgetItem(menuList);
-        new QListWidgetItem(menuList);
-        new QListWidgetItem(menuList);
-        new QListWidgetItem(menuList);
-        new QListWidgetItem(menuList);
-        menuList->setObjectName(QString::fromUtf8("menuList"));
-        QFont font2;
-        font2.setPointSize(12);
-        menuList->setFont(font2);
-
-        gridLayout->addWidget(menuList, 3, 0, 1, 5);
+        gridLayout->addWidget(orderTable, 5, 7, 1, 1);
 
         addOrderButton = new QPushButton(centralwidget);
         addOrderButton->setObjectName(QString::fromUtf8("addOrderButton"));
 
-        gridLayout->addWidget(addOrderButton, 5, 2, 1, 1);
+        gridLayout->addWidget(addOrderButton, 7, 2, 1, 1);
+
+        menulabel = new QLabel(centralwidget);
+        menulabel->setObjectName(QString::fromUtf8("menulabel"));
+        menulabel->setFont(font);
+
+        gridLayout->addWidget(menulabel, 1, 0, 1, 1);
 
         onLabel = new QLabel(centralwidget);
         onLabel->setObjectName(QString::fromUtf8("onLabel"));
 
-        gridLayout->addWidget(onLabel, 1, 7, 1, 1);
+        gridLayout->addWidget(onLabel, 3, 7, 1, 1);
+
+        orderQuantity = new QSpinBox(centralwidget);
+        orderQuantity->setObjectName(QString::fromUtf8("orderQuantity"));
+        orderQuantity->setMinimum(1);
+
+        gridLayout->addWidget(orderQuantity, 7, 1, 1, 1);
+
+        quanLabel = new QLabel(centralwidget);
+        quanLabel->setObjectName(QString::fromUtf8("quanLabel"));
+        QFont font1;
+        font1.setPointSize(10);
+        font1.setBold(false);
+        quanLabel->setFont(font1);
+        quanLabel->setTextFormat(Qt::PlainText);
+        quanLabel->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(quanLabel, 7, 0, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         totalLabel = new QLabel(centralwidget);
         totalLabel->setObjectName(QString::fromUtf8("totalLabel"));
-        QFont font3;
-        font3.setPointSize(11);
-        font3.setBold(true);
-        totalLabel->setFont(font3);
+        QFont font2;
+        font2.setPointSize(11);
+        font2.setBold(true);
+        totalLabel->setFont(font2);
         totalLabel->setAutoFillBackground(true);
         totalLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -203,13 +194,26 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush10);
         palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush9);
         totalValue->setPalette(palette);
-        totalValue->setFont(font2);
+        QFont font3;
+        font3.setPointSize(12);
+        totalValue->setFont(font3);
         totalValue->setAutoFillBackground(true);
 
         horizontalLayout->addWidget(totalValue);
 
 
-        gridLayout->addLayout(horizontalLayout, 5, 7, 1, 1);
+        gridLayout->addLayout(horizontalLayout, 7, 7, 1, 1);
+
+        menuList = new QListWidget(centralwidget);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        new QListWidgetItem(menuList);
+        menuList->setObjectName(QString::fromUtf8("menuList"));
+        menuList->setFont(font3);
+
+        gridLayout->addWidget(menuList, 5, 0, 1, 5);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -249,8 +253,7 @@ public:
         actionFullscreen->setShortcut(QCoreApplication::translate("MainWindow", "F11", nullptr));
 #endif // QT_CONFIG(shortcut)
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
-        menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
-        quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
+        coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
         QTableWidgetItem *___qtablewidgetitem = orderTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Item", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = orderTable->horizontalHeaderItem(1);
@@ -259,7 +262,12 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = orderTable->verticalHeaderItem(0);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
+        addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
+        menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
+        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
+        quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
+        totalLabel->setText(QCoreApplication::translate("MainWindow", "Total:", nullptr));
+        totalValue->setText(QCoreApplication::translate("MainWindow", "$0.00", nullptr));
 
         const bool __sortingEnabled = menuList->isSortingEnabled();
         menuList->setSortingEnabled(false);
@@ -275,10 +283,6 @@ public:
         ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Macchiato        $5.00", nullptr));
         menuList->setSortingEnabled(__sortingEnabled);
 
-        addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
-        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
-        totalLabel->setText(QCoreApplication::translate("MainWindow", "Total:", nullptr));
-        totalValue->setText(QCoreApplication::translate("MainWindow", "$0.00", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
