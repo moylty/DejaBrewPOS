@@ -35,6 +35,7 @@ public:
     QAction *actionQuit;
     QAction *actionFullscreen;
     QAction *actionAbout;
+    QAction *actionNext_Order;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QLabel *coLabel;
@@ -69,6 +70,8 @@ public:
         actionFullscreen->setObjectName(QString::fromUtf8("actionFullscreen"));
         actionAbout = new QAction(MainWindow);
         actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
+        actionNext_Order = new QAction(MainWindow);
+        actionNext_Order->setObjectName(QString::fromUtf8("actionNext_Order"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -235,6 +238,7 @@ public:
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuView->menuAction());
         menubar->addAction(menuHelp->menuAction());
+        menuFile->addAction(actionNext_Order);
         menuFile->addAction(actionQuit);
         menuView->addAction(actionFullscreen);
         menuHelp->addAction(actionAbout);
@@ -253,6 +257,7 @@ public:
         actionFullscreen->setShortcut(QCoreApplication::translate("MainWindow", "F11", nullptr));
 #endif // QT_CONFIG(shortcut)
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
+        actionNext_Order->setText(QCoreApplication::translate("MainWindow", "Next Order", nullptr));
         coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
         QTableWidgetItem *___qtablewidgetitem = orderTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Item", nullptr));

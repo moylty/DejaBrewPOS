@@ -407,6 +407,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNext_Order"/>
     <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -442,6 +443,11 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionNext_Order">
+   <property name="text">
+    <string>Next Order</string>
    </property>
   </action>
  </widget>

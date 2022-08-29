@@ -23,6 +23,9 @@ public:
     float orderTotal;
     float lpFloat;
 
+    QString latestPrice;
+    QString strTotal;
+
 private:
     Ui::MainWindow *ui;
 
@@ -32,5 +35,6 @@ private slots:
         void on_actionAbout_triggered();
         void on_actionFullscreen_triggered();
         void addToOrder();
+        void on_actionNext_Order_triggered();
 };
 #endif // MAINWINDOW_H

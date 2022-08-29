@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->addOrderButton,SIGNAL(pressed()),this,SLOT(addToOrder()));
 
     // append order number to order string
-    ui->onLabel->setText(ui->onLabel->text() + QString::number(orderNum));
+    ui->onLabel->setText("Order Number: " + QString::number(orderNum));
     // make order table stretch to fit all available space
     ui->orderTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -112,14 +112,14 @@ void MainWindow::addToOrder()
         ui->orderTable->setItem(rCount, 2, newPriceItem);   // price
 
         // get the most recent price string
-        QString latestPrice = ui->orderTable->item(rCount, 2)->text();
+        latestPrice = ui->orderTable->item(rCount, 2)->text();
         // remove the $
         latestPrice.remove(0, 1);
         // convert the string to float and add it to the total
         lpFloat = latestPrice.toFloat();
         orderTotal += lpFloat;
         // format the float so that there are two decimal places
-        QString strTotal = "$" + QString::number(orderTotal, 'f', 2);
+        strTotal = "$" + QString::number(orderTotal, 'f', 2);
         // set the value of the label to the total value
         ui->totalValue->setText(strTotal);
 
@@ -129,3 +129,23 @@ void MainWindow::addToOrder()
         ui->orderQuantity->setValue(1);
     }
 }
+
+void MainWindow::on_actionNext_Order_triggered()
+{
+    // initiate the next order, so resetting everything and incrementing order number
+    orderNum++;
+    // update order counter
+    ui->onLabel->setText("Order Number: " + QString::number(orderNum));
+    // delete all current table rows
+    ui->orderTable->setRowCount(0);
+    // reset placement counter
+    rCount = 0;
+
+    // reset total to 0 and regenerate string to display it
+    orderTotal = 0.00;
+    strTotal = "$" + QString::number(orderTotal, 'f', 2);
+    // set the value of the label to the total value
+    ui->totalValue->setText(strTotal);
+
+}
+
