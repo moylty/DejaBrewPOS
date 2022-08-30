@@ -166,14 +166,21 @@ void MainWindow::on_undoButton_clicked()
 
     if (ui->orderTable->rowCount() > 1)
     {
+        //recalculate latest price
+        qDebug() << rCount;
+        latestPrice = ui->orderTable->item(rCount-1, 2)->text();
+        latestPrice.remove(0, 1);
+        lpFloat = latestPrice.toFloat();
+
+
+
         // get the previous total and make it a float from a QString
         prevTotal = ui->totalValue->text().remove(0, 1).toFloat();
 
-        qDebug() << "prev: " << prevTotal;
-        qDebug() << "lpFloat: " << lpFloat;
-        qDebug() << "result: " << prevTotal - lpFloat;
+        qDebug() << "prev - lpFloat = result :: " << prevTotal << " - " << lpFloat << " = " << prevTotal - lpFloat;
 
-        strTotal = "$" + QString::number(prevTotal-lpFloat, 'f', 2);
+        orderTotal = prevTotal - lpFloat;
+        strTotal = "$" + QString::number(orderTotal, 'f', 2);
 
         // set the value of the label to the total value
         ui->totalValue->setText(strTotal);
