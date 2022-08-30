@@ -30,6 +30,7 @@
       <property name="font">
        <font>
         <pointsize>13</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -80,6 +81,7 @@
       <property name="font">
        <font>
         <pointsize>13</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -107,6 +109,7 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -125,6 +128,9 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="undoButton">
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
         <property name="text">
          <string>Undo</string>
         </property>
@@ -132,6 +138,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="noButton">
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
         <property name="text">
          <string>Next Order</string>
         </property>
@@ -142,6 +151,7 @@
         <property name="font">
          <font>
           <pointsize>11</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
