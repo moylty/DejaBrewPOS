@@ -152,3 +152,41 @@ void MainWindow::on_actionNext_Order_triggered()
 
 }
 
+
+void MainWindow::on_noButton_clicked()
+{
+    // call the same function as the menu bar entry so they are functionally identical
+    on_actionNext_Order_triggered();
+}
+
+
+void MainWindow::on_undoButton_clicked()
+{
+    //delete the last row, decrement row count, remove the second empty row
+    //get the previous total, subtract the last price, and update total
+
+    if (ui->orderTable->rowCount() > 1)
+    {
+        // get the previous total and make it a float from a QString
+        float prevTotal = ui->totalValue->text().remove(0, 1).toFloat();
+        qDebug() << prevTotal;
+
+
+        ui->orderTable->removeRow(rCount);
+        rCount--;
+        ui->orderTable->removeRow(rCount);
+        ui->orderTable->insertRow(ui->orderTable->rowCount());  // add a new row
+
+
+    }
+
+
+
+}
+
+
+void MainWindow::on_actionUndo_triggered()
+{
+    on_undoButton_clicked();
+}
+

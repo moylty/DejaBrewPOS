@@ -124,6 +124,20 @@
     <item row="7" column="7">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
+       <widget class="QPushButton" name="undoButton">
+        <property name="text">
+         <string>Undo</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="noButton">
+        <property name="text">
+         <string>Next Order</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="totalLabel">
         <property name="font">
          <font>
@@ -408,6 +422,8 @@
      <string>File</string>
     </property>
     <addaction name="actionNext_Order"/>
+    <addaction name="separator"/>
+    <addaction name="actionUndo"/>
     <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -448,6 +464,17 @@
   <action name="actionNext_Order">
    <property name="text">
     <string>Next Order</string>
+   </property>
+   <property name="shortcut">
+    <string>N</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
    </property>
   </action>
  </widget>

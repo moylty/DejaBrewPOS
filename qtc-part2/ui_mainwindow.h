@@ -36,6 +36,7 @@ public:
     QAction *actionFullscreen;
     QAction *actionAbout;
     QAction *actionNext_Order;
+    QAction *actionUndo;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QLabel *coLabel;
@@ -46,6 +47,8 @@ public:
     QSpinBox *orderQuantity;
     QLabel *quanLabel;
     QHBoxLayout *horizontalLayout;
+    QPushButton *undoButton;
+    QPushButton *noButton;
     QLabel *totalLabel;
     QLabel *totalValue;
     QListWidget *menuList;
@@ -72,6 +75,8 @@ public:
         actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
         actionNext_Order = new QAction(MainWindow);
         actionNext_Order->setObjectName(QString::fromUtf8("actionNext_Order"));
+        actionUndo = new QAction(MainWindow);
+        actionUndo->setObjectName(QString::fromUtf8("actionUndo"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -139,6 +144,16 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        undoButton = new QPushButton(centralwidget);
+        undoButton->setObjectName(QString::fromUtf8("undoButton"));
+
+        horizontalLayout->addWidget(undoButton);
+
+        noButton = new QPushButton(centralwidget);
+        noButton->setObjectName(QString::fromUtf8("noButton"));
+
+        horizontalLayout->addWidget(noButton);
+
         totalLabel = new QLabel(centralwidget);
         totalLabel->setObjectName(QString::fromUtf8("totalLabel"));
         QFont font2;
@@ -239,6 +254,8 @@ public:
         menubar->addAction(menuView->menuAction());
         menubar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionNext_Order);
+        menuFile->addSeparator();
+        menuFile->addAction(actionUndo);
         menuFile->addAction(actionQuit);
         menuView->addAction(actionFullscreen);
         menuHelp->addAction(actionAbout);
@@ -258,6 +275,13 @@ public:
 #endif // QT_CONFIG(shortcut)
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         actionNext_Order->setText(QCoreApplication::translate("MainWindow", "Next Order", nullptr));
+#if QT_CONFIG(shortcut)
+        actionNext_Order->setShortcut(QCoreApplication::translate("MainWindow", "N", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionUndo->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
+#if QT_CONFIG(shortcut)
+        actionUndo->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+Z", nullptr));
+#endif // QT_CONFIG(shortcut)
         coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
         QTableWidgetItem *___qtablewidgetitem = orderTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Item", nullptr));
@@ -271,6 +295,8 @@ public:
         menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
         onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
         quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
+        undoButton->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
+        noButton->setText(QCoreApplication::translate("MainWindow", "Next Order", nullptr));
         totalLabel->setText(QCoreApplication::translate("MainWindow", "Total:", nullptr));
         totalValue->setText(QCoreApplication::translate("MainWindow", "$0.00", nullptr));
 
