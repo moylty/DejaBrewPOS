@@ -18,3 +18,9 @@ was going to make with it.
 Qt allows me to develop and compile my code on my Linux PC, and then cross-compile it into a
 Windows binary.
 
+# Part 2: Qt
+
+Here is a screenshot of the finished version:
+
+![Screenshot](window.png "POS Screenshot")
+

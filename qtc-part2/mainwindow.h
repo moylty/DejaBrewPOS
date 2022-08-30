@@ -27,7 +27,6 @@ public:
     QString qvStr;
     QString selectedItem;
 
-
     QString latestPrice;
     QString strTotal;
 
