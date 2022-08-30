@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.2
+** Created by: Qt User Interface Compiler version 5.12.12
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -267,56 +267,56 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "DejaBrew POS", nullptr));
-        actionQuit->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
-        actionFullscreen->setText(QCoreApplication::translate("MainWindow", "Toggle Fullscreen", nullptr));
-#if QT_CONFIG(shortcut)
-        actionFullscreen->setShortcut(QCoreApplication::translate("MainWindow", "F11", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
-        actionNext_Order->setText(QCoreApplication::translate("MainWindow", "Next Order", nullptr));
-#if QT_CONFIG(shortcut)
-        actionNext_Order->setShortcut(QCoreApplication::translate("MainWindow", "N", nullptr));
-#endif // QT_CONFIG(shortcut)
-        actionUndo->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
-#if QT_CONFIG(shortcut)
-        actionUndo->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+Z", nullptr));
-#endif // QT_CONFIG(shortcut)
-        coLabel->setText(QCoreApplication::translate("MainWindow", "Current Order:", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "DejaBrew POS", nullptr));
+        actionQuit->setText(QApplication::translate("MainWindow", "Quit", nullptr));
+        actionFullscreen->setText(QApplication::translate("MainWindow", "Toggle Fullscreen", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionFullscreen->setShortcut(QApplication::translate("MainWindow", "F11", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionAbout->setText(QApplication::translate("MainWindow", "About", nullptr));
+        actionNext_Order->setText(QApplication::translate("MainWindow", "Next Order", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionNext_Order->setShortcut(QApplication::translate("MainWindow", "N", nullptr));
+#endif // QT_NO_SHORTCUT
+        actionUndo->setText(QApplication::translate("MainWindow", "Undo", nullptr));
+#ifndef QT_NO_SHORTCUT
+        actionUndo->setShortcut(QApplication::translate("MainWindow", "Ctrl+Z", nullptr));
+#endif // QT_NO_SHORTCUT
+        coLabel->setText(QApplication::translate("MainWindow", "Current Order:", nullptr));
         QTableWidgetItem *___qtablewidgetitem = orderTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Item", nullptr));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Item", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = orderTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Quantity", nullptr));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Quantity", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = orderTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Price", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = orderTable->verticalHeaderItem(0);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        addOrderButton->setText(QCoreApplication::translate("MainWindow", "Add to Order", nullptr));
-        menulabel->setText(QCoreApplication::translate("MainWindow", "Menu:", nullptr));
-        onLabel->setText(QCoreApplication::translate("MainWindow", "Order Number: ", nullptr));
-        quanLabel->setText(QCoreApplication::translate("MainWindow", "Quantity:", nullptr));
-        undoButton->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
-        noButton->setText(QCoreApplication::translate("MainWindow", "Next Order", nullptr));
-        totalLabel->setText(QCoreApplication::translate("MainWindow", "Total:", nullptr));
-        totalValue->setText(QCoreApplication::translate("MainWindow", "$0.00", nullptr));
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "1", nullptr));
+        addOrderButton->setText(QApplication::translate("MainWindow", "Add to Order", nullptr));
+        menulabel->setText(QApplication::translate("MainWindow", "Menu:", nullptr));
+        onLabel->setText(QApplication::translate("MainWindow", "Order Number: ", nullptr));
+        quanLabel->setText(QApplication::translate("MainWindow", "Quantity:", nullptr));
+        undoButton->setText(QApplication::translate("MainWindow", "Undo", nullptr));
+        noButton->setText(QApplication::translate("MainWindow", "Next Order", nullptr));
+        totalLabel->setText(QApplication::translate("MainWindow", "Total:", nullptr));
+        totalValue->setText(QApplication::translate("MainWindow", "$0.00", nullptr));
 
         const bool __sortingEnabled = menuList->isSortingEnabled();
         menuList->setSortingEnabled(false);
         QListWidgetItem *___qlistwidgetitem = menuList->item(0);
-        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "Flat White        $4.50", nullptr));
+        ___qlistwidgetitem->setText(QApplication::translate("MainWindow", "Flat White        $4.50", nullptr));
         QListWidgetItem *___qlistwidgetitem1 = menuList->item(1);
-        ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "Cappuccino      $4.70", nullptr));
+        ___qlistwidgetitem1->setText(QApplication::translate("MainWindow", "Cappuccino      $4.70", nullptr));
         QListWidgetItem *___qlistwidgetitem2 = menuList->item(2);
-        ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "Expresso          $3.50", nullptr));
+        ___qlistwidgetitem2->setText(QApplication::translate("MainWindow", "Expresso          $3.50", nullptr));
         QListWidgetItem *___qlistwidgetitem3 = menuList->item(3);
-        ___qlistwidgetitem3->setText(QCoreApplication::translate("MainWindow", "Long Black       $4.00", nullptr));
+        ___qlistwidgetitem3->setText(QApplication::translate("MainWindow", "Long Black       $4.00", nullptr));
         QListWidgetItem *___qlistwidgetitem4 = menuList->item(4);
-        ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Macchiato        $5.00", nullptr));
+        ___qlistwidgetitem4->setText(QApplication::translate("MainWindow", "Macchiato        $5.00", nullptr));
         menuList->setSortingEnabled(__sortingEnabled);
 
-        menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
-        menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
-        menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
+        menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
+        menuView->setTitle(QApplication::translate("MainWindow", "View", nullptr));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", nullptr));
     } // retranslateUi
 
 };

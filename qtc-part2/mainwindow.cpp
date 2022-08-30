@@ -75,11 +75,10 @@ void MainWindow::addToOrder()
     {
         ui->orderTable->insertRow(ui->orderTable->rowCount());  // add a new row
 
-        QString selectedItem;
         selectedItem = ui->menuList->currentItem()->text(); // get current item name selection
         selectedItem.chop(5);  // remove price from name string
-        QString qvStr = QString::number(quantityValue = ui->orderQuantity->value()); // get quantity value and make it into a qstring
-        QString priceStr = "Empty";
+        qvStr = QString::number(quantityValue = ui->orderQuantity->value()); // get quantity value and make it into a qstring
+        priceStr = "Empty";
 
 
         if (selectedItem.contains("Flat White"))
@@ -168,18 +167,24 @@ void MainWindow::on_undoButton_clicked()
     if (ui->orderTable->rowCount() > 1)
     {
         // get the previous total and make it a float from a QString
-        float prevTotal = ui->totalValue->text().remove(0, 1).toFloat();
-        qDebug() << prevTotal;
+        prevTotal = ui->totalValue->text().remove(0, 1).toFloat();
+
+        qDebug() << "prev: " << prevTotal;
+        qDebug() << "lpFloat: " << lpFloat;
+        qDebug() << "result: " << prevTotal - lpFloat;
+
+        strTotal = "$" + QString::number(prevTotal-lpFloat, 'f', 2);
+
+        // set the value of the label to the total value
+        ui->totalValue->setText(strTotal);
+
 
 
         ui->orderTable->removeRow(rCount);
         rCount--;
         ui->orderTable->removeRow(rCount);
         ui->orderTable->insertRow(ui->orderTable->rowCount());  // add a new row
-
-
     }
-
 
 
 }

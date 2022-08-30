@@ -22,6 +22,11 @@ public:
     float prices[5] = {4.50, 4.70, 3.50, 4.00, 5.00};
     float orderTotal;
     float lpFloat;
+    float prevTotal;
+    QString priceStr;
+    QString qvStr;
+    QString selectedItem;
+
 
     QString latestPrice;
     QString strTotal;
