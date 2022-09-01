@@ -24,8 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->orderTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     // make invisible buttons invisible
-    ui->invB1->setStyleSheet("background-color: rgba(0, 0, 0, 0)");
-    ui->invB2->setStyleSheet("background-color: rgba(0, 0, 0, 0)");
+    //ui->invB1->setStyleSheet("background-color: rgba(0, 0, 0, 0)");
+    //ui->invB2->setStyleSheet("background-color: rgba(0, 0, 0, 0)");
 
 }
 
