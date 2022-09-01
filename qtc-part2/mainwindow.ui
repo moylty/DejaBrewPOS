@@ -1791,7 +1791,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string> </string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -1871,6 +1871,8 @@
  </widget>
  <tabstops>
   <tabstop>menuList</tabstop>
+  <tabstop>orderQuantity</tabstop>
+  <tabstop>addOrderButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>

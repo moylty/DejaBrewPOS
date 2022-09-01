@@ -516,6 +516,8 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+        QWidget::setTabOrder(menuList, orderQuantity);
+        QWidget::setTabOrder(orderQuantity, addOrderButton);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuView->menuAction());
