@@ -29,6 +29,9 @@ public:
 
     QString latestPrice;
     QString strTotal;
+    QString strDTotal;
+
+    float dailyTotal;
 
 private:
     Ui::MainWindow *ui;

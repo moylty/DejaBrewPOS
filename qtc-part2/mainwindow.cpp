@@ -23,6 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     // make order table stretch to fit all available space
     ui->orderTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
+    // make invisible buttons invisible
+    ui->invB1->setStyleSheet("background-color: rgba(0, 0, 0, 0)");
+    ui->invB2->setStyleSheet("background-color: rgba(0, 0, 0, 0)");
+
 }
 
 MainWindow::~MainWindow()
@@ -142,6 +146,10 @@ void MainWindow::on_actionNext_Order_triggered()
     ui->orderTable->setRowCount(0);
     // reset placement counter
     rCount = 0;
+
+    dailyTotal += orderTotal;
+    strDTotal = "$" + QString::number(dailyTotal, 'f', 2);
+    ui->dtValue->setText(strDTotal);
 
     // reset total to 0 and regenerate string to display it
     orderTotal = 0.00;
